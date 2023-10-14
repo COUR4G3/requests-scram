@@ -1,0 +1,36 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "[css]": {
+      "editor.tabSize": 2
+  },
+  "eslint.validate": ["javascript"],
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
+    },
+  },
+  "git.ignoreLimitWarning": true,
+  "[sass]": {
+    "editor.tabSize": 2
+  },
+  "[scss]": {
+    "editor.tabSize": 2
+  },
+  "python.analysis.typeCheckingMode": "off",
+}

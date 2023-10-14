@@ -1,0 +1,45 @@
+repos:
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.4.0
+    hooks:
+      - id: pyupgrade
+        args: [--py38-plus]
+        exclude: ^_version.py$
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v2.4.0
+    hooks:
+      - id: add-trailing-comma
+        args: ["--py36-plus"]
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        exclude: ^_version.py$
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-bugbear
+        args:
+          - --max-line-length=88
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: trailing-whitespace
+  - repo: https://github.com/twisted/towncrier
+    rev: a3515828bb942689894725c3bd3ab839fef71cd2
+    hooks:
+      - id: towncrier-check
+        files: $changelog\.d/

@@ -1,0 +1,107 @@
+[project]
+name = "requests-scram"
+description = "Implements RFC 7804 Salted Challenge Response (SCRAM) HTTP Authentication Mechanism for the Requests library."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{name = "Michael de Villiers", email = "michael@devilears.co.za"},]
+maintainers = [{name = "Michael de Villiers", email = "michael@devilears.co.za"},]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+dynamic = ["version"]
+requires-python = ">= 3.8"
+dependencies = [
+    "requests",
+    "scramp"
+]
+
+[project.urls]
+Homepage = "https://github.com/COUR4G3/requests-scram/"
+"Source Code" = "https://github.com/COUR4G3/requests-scram/"
+"Issue Tracker" = "https://github.com/COUR4G3/requests-scram/issues/"
+
+[build-system]
+requires = [
+    "setuptools>=64.0",
+    "setuptools_scm[toml]>=6.2",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.bandit]
+exclude_dirs = [".github", "tests"]
+skips = ["B101"]
+
+[tool.black]
+force-exclude = '''
+(
+  /venv/
+)
+'''
+line-length = 88
+target-version = ['py38']
+
+[tool.coverage.run]
+source = ["requests_scram"]
+
+[tool.coverage.report]
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: nocover",
+
+    # Don't complain about type checking code not run
+    "if TYPE_CHECKING:",
+    "if t.TYPE_CHECKING:",
+
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if app\\.debug",
+    "if current_app\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if False:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+]
+omit = [
+    "_version.py",
+]
+
+[tool.flake8]
+ignore = ['B010', 'E203', 'W503']
+max-line-length = 88
+count = true
+
+[tool.isort]
+profile = 'black'
+line_length = 88
+lines_between_types = 1
+multi_line_output = 3
+combine_as_imports = true
+known_first_party = ['requests_scram']
+
+[tool.mypy]
+python_version = '3.11'
+
+[[tool.mypy.overrides]]
+module = ["scramp"]
+ignore_missing_imports = true
+
+[tool.setuptools.packages.find]
+include = ["requests_scram"]
+
+[tool.setuptools_scm]
+write_to = "_version.py"
