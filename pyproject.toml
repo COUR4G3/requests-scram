@@ -100,8 +100,8 @@ python_version = '3.11'
 module = ["scramp"]
 ignore_missing_imports = true
 
-[tool.setuptools.packages.find]
-include = ["requests_scram"]
+[tool.setuptools]
+py-modules = ["requests_scram"]
 
 [tool.setuptools_scm]
 write_to = "_version.py"
